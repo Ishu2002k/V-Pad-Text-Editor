@@ -1,24 +1,28 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import font , colorchooser , filedialog , messagebox
+# import os to work with file such as write and read a file
 import os
 
+# make a object of the application 
 main_applicaition = tk.Tk()
-main_applicaition.geometry('1200x800')
-main_applicaition.title('Vpad text editor')
-main_applicaition.wm_iconbitmap('icon.ico')
+main_applicaition.geometry('1200x800') # Set up its Geometry
+main_applicaition.title('Vpad text editor') # Give it a name
+main_applicaition.wm_iconbitmap('icon.ico') # it is the icon for our software
 
 #  *************************************************main menu *****************************************************************
+main_menu = tk.Menu()  # make the menu
 # -------------------------------------------------End main menu--------------------------------------------------------
-main_menu = tk.Menu()
 
+# set all the images to a var using PhotoImage function of tkinter
 # file icons
-new_icon = tk.PhotoImage(file=r'icon2/new.png.png')
+new_icon = tk.PhotoImage(file='icon2/new.png.png')
 open_icon = tk.PhotoImage(file='icon2/open.png.png')
 save_icon = tk.PhotoImage(file='icon2/save.png.png')
 save_as_icon = tk.PhotoImage(file='icon2/save_as.png.png')
 exit_icon = tk.PhotoImage(file='icon2/exit.png.png')
 
+# add file in our menu
 file = tk.Menu(main_menu,tearoff = False)
 
 
@@ -78,7 +82,7 @@ main_menu.add_cascade(label ='Color Theme',menu =color_theme)
 tool_bar = ttk.Label(main_applicaition)
 tool_bar.pack(side = tk.TOP,fill=tk.X)
 
-#*************** font_box
+#*************** font_box ******************************************************************8
 font_tuples= tk.font.families()
 font_family = tk.StringVar()
 font_box = ttk.Combobox(tool_bar,width =30,textvariable=font_family,state = "readonly")
